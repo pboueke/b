@@ -7,7 +7,7 @@ title: Unihexgrid
 
 ##What is it?
 
-See for yourself: [A* demo]({{ site.baseurl }}public/projects/hex/demos/AS/gridAS.html)
+See for yourself: [A* demo]({{ site.baseurl }}/public/projects/hex/demos/AS/gridAS.html)
 
 It's a hexagonal grid spiral/ring indexation that stores every hexagon's index just like that: *[0, 1, 2, 3, ..., N]*.
 
