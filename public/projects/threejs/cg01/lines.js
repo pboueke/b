@@ -151,9 +151,9 @@ Lines.prototype.drawLines = function () {
         geometry = [],
         handle_material = [],
         handle_geometry = [],
-        handle_radius = 7,
-        handle_segments = 1,
-        handle_rings = 1,
+        handle_radius = 5,
+        handle_segments = 16,
+        handle_rings = 16,
         iterator;
     //only generate colors once
     if (this.line_colors.length === 0) {
