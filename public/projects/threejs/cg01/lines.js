@@ -45,13 +45,13 @@ var random_color = function () {
 function Lines() {
     //main class that store and operate the lines
     "use strict";
-    this.points = [];           //two points per line    [[[x1,y1],[x2,y2]]]
-    this.intersections = [];    //intersection positions [[x,y]]
-    this.lines = [];            //threejs line objects   [line]
-    this.handles = [];          //threejs line objects   [[handle0, handle1]]
-    this.spheres = [];          //threejs line objects   [sphere]
-    this.line_colors = [];                           //  [hex]
-    this.intersection_colors = [];                   //  [hex]
+    this.points = [];           //two points per line      [[[x1,y1],[x2,y2]]]
+    this.intersections = [];    //intersection positions   [[x,y]]
+    this.lines = [];            //threejs line objects     [line]
+    this.handles = [];          //threejs sphere objects   [[handle0, handle1]]
+    this.spheres = [];          //threejs sphere objects   [sphere]
+    this.line_colors = [];                           //    [hex]
+    this.intersection_colors = [];                   //    [hex]
 }
 
 Lines.prototype.getLineParameters = function (arr) {
@@ -62,6 +62,10 @@ Lines.prototype.getLineParameters = function (arr) {
     "use strict";
     var ans = [];
     ans[0] = (arr[0][1] - arr[1][1]) / (arr[0][0] - arr[1][0]); //a
+    if (ans[0] === Infinity || ans[0] === -Infinity) {
+        //Lines.intersection() must know if a = infinity
+        return false;
+    }
     ans[1] = arr[0][1] - arr[0][0] * ans[0]; //b
     return ans;
 };
@@ -76,8 +80,16 @@ Lines.prototype.intersection = function (arr) {
         ans = [];
     l1 = this.getLineParameters(arr[0]);
     l2 = this.getLineParameters(arr[1]);
-    ans[0] = (l2[1] - l1[1]) / (l1[0] - l2[0]); //x
-    ans[1] = ans[0] * l1[0] + l1[1];  //y
+    if (!l1) {
+        ans[0] = arr[0][0][0];
+        ans[1] = ans[0] * l2[0] + l2[1];
+    } else if (!l2) {
+        ans[0] = arr[1][0][0];
+        ans[1] = ans[0] * l1[0] + l1[1];
+    } else {
+        ans[0] = (l2[1] - l1[1]) / (l1[0] - l2[0]); //x
+        ans[1] = ans[0] * l1[0] + l1[1];
+    }
     return ans;
 };
 
@@ -347,10 +359,67 @@ var start = function (lines) {
         document.getElementById("intxt").value = lines.getLineText();
     });
 
+    document.getElementById("random").addEventListener("click", function () {
+        //adds random line
+        /*ignore:true */
+        var maxx, minx, maxy, miny, iterator, jterator, lin = [[], []];
+        /*ignore:false */
+        if (lines.points.length === 0) {
+            maxx = 200;
+            minx = 50;
+            maxy = 200;
+            miny = 50;
+        } else {
+            maxx = minx = lines.points[0][0][0];
+            maxy = miny = lines.points[0][0][1];
+            for (iterator = 0; iterator < lines.points.length; iterator += 1) {
+                for (jterator = 0; jterator < 2; jterator += 1) {
+                    if (lines.points[iterator][jterator][0] > maxx) {
+                        maxx = lines.points[iterator][jterator][0];
+                    }
+                    if (lines.points[iterator][jterator][0] < minx) {
+                        minx = lines.points[iterator][jterator][0];
+                    }
+                    if (lines.points[iterator][jterator][1] > maxy) {
+                        maxy = lines.points[iterator][jterator][1];
+                    }
+                    if (lines.points[iterator][jterator][1] < miny) {
+                        miny = lines.points[iterator][jterator][1];
+                    }
+                }
+            }
+        }
+        lin[0][0] = Math.random() * (maxx - minx) + minx;
+        lin[1][0] = Math.random() * (maxx - minx) + minx;
+        lin[0][1] = Math.random() * (maxy - miny) + miny;
+        lin[1][1] = Math.random() * (maxy - miny) + miny;
+        lines.addLine(lin);
+        lines.update(zdistance);
+        document.getElementById("intxt").value = lines.getLineText();
+    });
+
     document.getElementById("intxt").addEventListener("change", function () {
         //when text is changed
         lines.parseLineText(document.getElementById("intxt").value);
         lines.update(zdistance);
+    });
+
+    document.getElementById("popParent").addEventListener("mouseover", function() {
+        //controls popup
+        document.getElementById('popup').style.display = 'block';
+    });
+
+    document.getElementById("popParent").addEventListener("mouseout", function() {
+        //controls popup
+        document.getElementById('popup').style.display = 'none';
+    });
+
+    document.addEventListener("keydown", function() {
+        if (event.which == 46) {
+            lines.points.pop();
+            lines.update(zdistance);
+            document.getElementById("intxt").value = lines.getLineText();
+        }
     });
 
     document.addEventListener('mousedown', function () {

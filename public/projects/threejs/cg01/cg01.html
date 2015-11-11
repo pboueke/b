@@ -12,6 +12,8 @@
     <script src="../three.js-r71/build/three.min.js"></script>
     <script src="../three.js-r71/src/controls/OrbitControls.js"></script>
     <script src="../three.js-r71/src/extras/geometries/TextGeometry.js"></script>
+
+    </script>
     <script src="lines.js"></script>
 
     <div id="info">
@@ -20,15 +22,31 @@
     		<a href="http://threejs.org" target="_blank">three.js</a> webgl - cg01 2015 - by <a href="https://github.com/pboueke">pboueke</a> - {<a href="lines.js">source</a>}
       </font>
       <br>
-      <font color="#B2B2B2" size="2.5">
-        <p>&nbsp;Format: [line1]; ...; [lineN]; = [(x11, y11), (x12, y12)]; ...; [(xN1, yN1), (xN2, yN2)];</p></font>
-      <font color="#ffffff">
+      <br>
         <textarea id="intxt" rows="4" cols="50">[(100, 100), (200, 200)]; [(100, 200), (200, 100)]; [(50, 150), (300, 50)]; [(30, 200), (340, 234)];</textarea>
         <button id="gotxt" type="button">Set</button>
         <button id="gettxt" type="button">Get</button>
+        <button id="random" type="button">+</button>
       </font>
+      <div id="popParent">
+        <u>Controls</u>
+        <div id="popup" style="display : none">
+        <br>
+        Text: <br>
+        *  "Text Area": Input/Output that translates the string to the coordinates in the scene. <br>
+        *  "Format": <font color="#B2B2B2" size="2.5">[line1]; ...; [lineN]; = [(x11, y11), (x12, y12)]; ...; [(xN1, yN1), (xN2, yN2)];</font> <br>
+        <br>
+        Buttons:                                       <br>
+        *  "Set": Uses current text to generate scene. <br>
+        *  "Get": Uses current scene to generate text. <br>
+        *  "+"  : Adds random line to scene.           <br>
+        *  "DEL key": Removes last line.               <br>
+                                                       <br>
+        Lines:                                         <br>
+        *  "Handles": Click and drag a handle to modify the selected line. <br>
+        </div>
+      </div>
     </div>
-
     <script  type="text/javascript">
       var L = new Lines();
       start(L)
