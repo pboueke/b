@@ -1,7 +1,10 @@
-var container;
-var camera, controls, scene, renderer;
-var objects = [], plane;
+//jslint config
+/*global THREE, scene, window, document, requestAnimationFrame, console*/
+/*jslint continue:true white:true, sloppy:true, browser:true*/
 
+//global
+var container, camera, controls, scene, renderer, light;
+var objects = [], plane;
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector2(),
 offset = new THREE.Vector3(),
@@ -9,11 +12,12 @@ INTERSECTED, SELECTED, ROTATING;
 var ROTATION = false;
 var rotationmsg;
 
+//main
 start();
 animate();
 
 function start() {
-
+    //initializes most variables
     container = document.createElement( 'div' );
     document.body.appendChild( container );
 
@@ -33,7 +37,7 @@ function start() {
     scene = new THREE.Scene();
     scene.add( new THREE.AmbientLight( 0x505050 ) );
 
-    var light = new THREE.SpotLight( 0xffffff, 1.5 );
+    light = new THREE.SpotLight( 0xffffff, 1.0 );
     light.position.set( 0, 500, 2000 );
     light.castShadow = true;
     light.shadowCameraNear = 200;
@@ -58,7 +62,8 @@ function start() {
     renderer.sortObjects = false;
     container.appendChild( renderer.domElement );
 
-    //skybox
+    //TODO: skybox
+    /*
     var urlPrefix = "clouds/";
     var urls = [ urlPrefix + "Skybox-Right.bmp", urlPrefix + "Skybox-Left.bmp",
         urlPrefix + "Skybox-Top.bmp", urlPrefix + "Skybox-Bottom.bmp",
@@ -67,7 +72,7 @@ function start() {
     var textureCube = THREE.ImageUtils.loadTextureCube( urls );
     var shader = THREE.ShaderLib["cube"];
     var uniforms = THREE.UniformsUtils.clone( shader.uniforms );
-    uniforms['tCube'].value = textureCube;   // textureCube has been init before
+    uniforms['tCube'].value = textureCube;
     var material = new THREE.ShaderMaterial({
     fragmentShader: shader.fragmentShader,
     vertexShader: shader.vertexShader,
@@ -75,13 +80,11 @@ function start() {
     depthWrite: false,
     side: THREE.DoubleSide
     }),
-    // build the skybox Mesh 
-// build the skybox Mesh 
     skyboxMesh = new THREE.Mesh( new THREE.BoxGeometry( 100000, 100000, 100000, 1, 1, 1, null, true ), material );
-    // add it to the scene
     scene.add( skyboxMesh );
+    */
 
-
+    // add event listeners
     renderer.domElement.addEventListener( 'mousemove', onDocumentMouseMove, false );
     renderer.domElement.addEventListener( 'mousedown', onDocumentMouseDown, false );
     renderer.domElement.addEventListener( 'mouseup', onDocumentMouseUp, false );
@@ -90,8 +93,14 @@ function start() {
 
 }
 
-function onWindowResize() {
+var random_color = function () {
+    // returns random color in hex code
+    "use strict";
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+};
 
+function onWindowResize() {
+    // takes careof aspect ratioon resize
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -101,46 +110,67 @@ function onWindowResize() {
 function onDocumentMouseMove( event ) {
 
     event.preventDefault();
+
+    // clears the scene from any sphere used for the vizualization of the trackballcontroll
+    var aux_object = scene.getObjectByName("rotSphere");
+    while (aux_object !== undefined) {
+        aux_object = scene.getObjectByName("rotSphere");
+        scene.remove(aux_object);
+    }
+
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;  //normalize mouse coordinates
     mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-    raycaster.setFromCamera( mouse, camera ); //cast ray from 'camera'
-    if ( SELECTED && !ROTATION) { // if translading put plane in the middle of cube to orient translation
+    raycaster.setFromCamera( mouse, camera ); //cast ray from camera based on the position of the mouse
+    if ( SELECTED && !ROTATION) { //gets intersections with the plane 
         var intersects = raycaster.intersectObject( plane );
         if ( intersects.length > 0 ) {
-            SELECTED.position.copy( intersects[ 0 ].point);
-    }
-    return;
-}
-
-var intersects = raycaster.intersectObjects( objects ); //check which cubes are intersected by raycast
-
-if ( intersects.length > 0 ) {
-    if ( INTERSECTED != intersects[ 0 ].object ) {
-        INTERSECTED = intersects[ 0 ].object;
+            SELECTED.position.copy( intersects[0].point);
         }
-        container.style.cursor = 'pointer';
-    } else {
-        INTERSECTED = null;
-        container.style.cursor = 'auto';
+        return;
     }
-    if ( ROTATION && ROTATING && SELECTED) { //rotate using arcball mechanics
-        deltaX = event.clientX - startPoint.x;
-        deltaY = event.clientY - startPoint.y;
-        handleRotation();
-        startPoint.x = event.clientX;
-        startPoint.y = event.clientY;
-    }
+    var intersects = raycaster.intersectObjects( objects ); //gets cubes intersected with the ray
+    if ( intersects.length > 0 ) {
+        if ( INTERSECTED != intersects[0].object ) {
+            INTERSECTED = intersects[0].object;
+            }
+            container.style.cursor = 'pointer';
+        } else {
+            INTERSECTED = null;
+            container.style.cursor = 'auto';
+        }
+        if ( ROTATION && ROTATING && SELECTED) { //rotate
+            //create vizualization sphere
+            var intersection = raycaster.intersectObject( plane );
+            var geometry = new THREE.SphereGeometry(SELECTED.geometry.parameters.height * 0.875, 16, 16);
+            var sphere = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: true, transparent: true, opacity: 0.25, color: 0xffffff } ) );
+            sphere.position.x = SELECTED.position.x;
+            sphere.position.y = SELECTED.position.y;
+            sphere.position.z = SELECTED.position.z;
+            sphere.castShadow = false;
+            sphere.receiveShadow = false;
+            sphere.name = "rotSphere";
+            scene.add( sphere );
+
+            //process rotation
+            deltaX = event.clientX - startPoint.x;
+            deltaY = event.clientY - startPoint.y;
+            handleRotation();
+            startPoint.x = event.clientX;
+            startPoint.y = event.clientY;
+
+
+        }
 }
 
 function onDocumentMouseDown( event ) {
-
+    // changes global variables and handles interaction on click
     event.preventDefault();
     raycaster.setFromCamera( mouse, camera );
     var intersects = raycaster.intersectObjects( objects );
 
     if ( intersects.length > 0 ) {
         controls.enabled = false;
-        SELECTED = intersects[ 0 ].object;
+        SELECTED = intersects[0].object;
         plane.position.copy( SELECTED.position );
         var intersects = raycaster.intersectObject( plane );
         container.style.cursor = 'move';
@@ -156,7 +186,7 @@ function onDocumentMouseDown( event ) {
 }
 
 function onDocumentMouseUp( event ) {
-
+    // changes global variables
     event.preventDefault();
     controls.enabled = true;
     plane.lookAt( camera.position ); 
@@ -169,31 +199,35 @@ function onDocumentMouseUp( event ) {
 }
 
 function onDocumentKeyPressed( event ) {
-
-    if(event.which == 82 /*r*/ && ROTATION == false) { //toggle rotate mode
-        ROTATION = true;
-        //container.children[2].innerHTML = 'ROTATE MODE'  
-        return;
-    }
-    else if ( event.which == 82 /*r*/ && ROTATION == true) { //toggle move mode
-        ROTATION = false;
-        //container.children[2].innerHTML = 'MOVE MODE'; 
-        return;
-    }
-    else if ( event.which == 67 /*c*/) { //create cube
+    //handles all the keydown events
+    if(event.which == 32){ //toggles between rotation and translationwith the space bar
+        if (ROTATION == false) { //toggle rotate mode
+            ROTATION = true;
+            //container.children[2].innerHTML = 'ROTATE MODE'  
+            return;
+        } else {
+            ROTATION = false;
+            //container.children[2].innerHTML = 'MOVE MODE'; 
+            return;
+        }
+    } else if ( event.which == 67) {  //  handles creation of new cubes with c
+        var min = 30,
+            max = 90,
+            radius = Math.floor(Math.random() * (max - min + 1)) + min,
+            color = random_color();
+        //create cube
         raycaster.setFromCamera( mouse, camera );
         var intersection = raycaster.intersectObject( plane );
-        var geometry = new THREE.BoxGeometry( 40, 40, 40 );
-        var object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
-        object.position.x = intersection[0].point.x;
-        object.position.y = intersection[0].point.y;
-        object.position.z = intersection[0].point.z;
-        object.castShadow = true;
-        object.receiveShadow = true;
-        scene.add( object );
-        objects.push( object );
-    }
-    else if ( event.which == 68 /*d*/) { //delete cube
+        var geometry = new THREE.BoxGeometry( radius, radius, radius );
+        var cube = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: color } ) );
+        cube.position.x = intersection[0].point.x;
+        cube.position.y = intersection[0].point.y;
+        cube.position.z = intersection[0].point.z;
+        cube.castShadow = true;
+        cube.receiveShadow = true;
+        scene.add( cube );
+        objects.push( cube );
+    } else if ( event.which == 88) { // handles deletation of cubeswith x
         raycaster.setFromCamera( mouse, camera );
         var intersection = raycaster.intersectObjects( objects );
         if (intersection.length > 0){
@@ -241,10 +275,10 @@ function rotateMatrix(rotateStart, rotateEnd) {
         return quaternion;
     }
 
-    function clamp(value, min, max)
-    {
-        return Math.min(Math.max(value, min), max);
-    }
+function clamp(value, min, max)
+{
+    return Math.min(Math.max(value, min), max);
+}
 
 function animate() {
 
@@ -256,7 +290,7 @@ function animate() {
 function render() {
 
     controls.update();
+    light.position.set(camera.position.x,camera.position.y,camera.position.z);
     renderer.render( scene, camera );
-
 }
 
