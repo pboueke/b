@@ -1,59 +1,53 @@
 ---
 layout: page
-title: Projects
+title: side projects
 ---
 
-<h3>A few pet projects</h3>
+<div class="mdl-grid portfolio-max-width">
+    <!-- PONGO PONG -->
+    <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+        <div class="mdl-card__media">
+            <img class="article-image" src=" {{ site.baseurl }}/public/img/pongo.gif" border="0" alt="">
+        </div>
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">PONGO pong</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          It's a simple 3D pong game, still missing some pieces. It's made with the BabylonJS framework and some other bits.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://pboueke.github.io/b/2016/04/02/pongo/">Read more</a>
+        </div>
+    </div>
+    <!-- UNIHEXGRID -->
+    <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+        <div class="mdl-card__media">
+            <img class="article-image" src=" {{ site.baseurl }}/public/img/unihexgrid_astar.gif" border="0" alt="">
+        </div>
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Unihexgrid</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          It's a hexagonal grid spiral/ring indexation that stores every hexagon's index in a simple array.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://pboueke.github.io/b/2015/11/06/unihexgrid/">Read more</a>
+        </div>
+    </div>
+    <!-- WVC -->
+    <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+        <div class="mdl-card__media">
+            <img class="article-image" src=" {{ site.baseurl }}/public/img/wvc.gif" border="0" alt="">
+        </div>
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Web Voice Converter</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          It's a very simple voice converter that uses the Web Audio API to apply sound effects to an audio stream coming from your microphone.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="http://pboueke.github.io/b/2016/04/01/wvc/">Read more</a>
+        </div>
+    </div>
 
-<br>
-<hr>
-<!-- PONGO -->
-<a href="{{ site.baseurl }}/2016/04/02/pongo/">
-    <img src="http://i.imgur.com/CyL6T52.png" alt="">
-</a>
-<a href="{{ site.baseurl }}/2016/04/02/pongo/"><h3>PONGO pong</h3></a>
-<p>A 3D pong game made with javascript for your browser.</p>
-<p> Last Update: April 2, 2016</p>
-
-<br>
-<hr>
-<!-- UNIHEXGRID -->
-<a href="{{ site.baseurl }}/public/projects/hex/demos/AS/gridAS.html">
-    <img src="http://i.imgur.com/GEWReWq.png" alt="">
-</a>
-<h3>unihexgrid</h3>
-<a href="{{ site.baseurl }}/public/projects/hex/demos/AS/gridAS.html">Demo</a>
-<p>Unidiensional Hexagonal Ring Grid. A different way of indexing hexagonal grids.</p>
-<p> Last Update: November 2, 2015</p>
-
-<br>
-<hr>
-<!-- CG DEMOS -->
-<a href="{{ site.baseurl }}/2015/11/06/cg-demos/">
-    <img src="http://i.imgur.com/jQWr4DF.png" alt="">
-</a>
-<h3>CG demos</h3>
-<a href="{{ site.baseurl }}/2015/11/06/cg-demos/">Demos</a>
-<p>A small collection of graphical demos that should run in your browser.</p>
-
-<br>
-<hr>
-<!-- inKlan -->
-<a href="http://i.imgur.com/3RGHtZg.png">
-    <img src="http://i.imgur.com/lZCiQn5.png" alt="">
-</a>
-<h3>inKlan v1</h3>
-<a href="https://github.com/">https://github.com</a>/<a href="https://github.com/mseefelder">mseefelder</a>/<a href="https://github.com/mseefelder/inKlan">inKlan</a>.
-<p>Collaborative web drawing powered by node.js and some other stuff.</p>
-<p> Last Update: July 18, 2015</p>
-
-<br>
-<hr>
-<!-- MARCOPOLIS -->
-<a href="#">
-    <img src="http://i.imgur.com/f17dWEa.png" alt="">
-</a>
-<h3>Marcopolis</h3>
-<p>Work in Progress</p>
-<p>Simple RTS game designed for Android devices using Unity2d.</p>
-<p><span class="glyphicon glyphicon-time"></span> Last Update: September 29, 2015</p>
+</div>

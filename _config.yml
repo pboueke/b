@@ -25,3 +25,11 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/pboueke/pboueke.github.io
+
+navigation:
+- text: pboueke
+  url: /b/index.html
+- text: side projects
+  url: /b/projects/
+- text: presentations
+  url: /b/presentations/
