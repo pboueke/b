@@ -32,4 +32,6 @@ navigation:
 - text: side projects
   url: /b/projects/
 - text: presentations
-  url: /b/presentations/
+  url: https://speakerdeck.com/pboueke
+- text: updates
+  url: /b/updates

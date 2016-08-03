@@ -15,8 +15,12 @@
         </header>
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <a class="mdl-navigation__link" href="{{ site.baseurl }}/">pboueke</a>
-                <a class="mdl-navigation__link" href="{{ site.baseurl }}/projects">side projects</a>
-                <a class="mdl-navigation__link" href="{{ site.baseurl }}/presentations">presentations</a>
+              {% for link in site.navigation %}
+                {% assign current = nil %}
+                {% if page.title == link.text %}
+                  {% assign current = 'is-active' %}
+                {% endif %}
+                <a class="mdl-navigation__link {{ current }}" href="{{link.url}}" title="{{link.title}}">{{link.text}}</a>
+              {% endfor %}
             </nav>
         </div>
