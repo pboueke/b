@@ -9,7 +9,7 @@ permalink:        pretty
 
 # Setup
 title:            pboueke
-tagline:          ''
+tagline:          'about'
 description:      'My personal page. Here you may find some of my thoughts and experiences.'
 url:              "https://pboueke.github.io"
 baseurl:          "/b"
