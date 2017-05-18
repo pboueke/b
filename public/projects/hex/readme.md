@@ -1,18 +1,22 @@
 ![unihexgrid](http://i.imgur.com/GEWReWq.png)
 
-##What is it?
+## What is it?
 
-See for yourself: [A* demo]({{ site.baseurl }}/public/projects/hex/demos/AS/gridAS.html)
+See for yourself: [A* demo](https://pboueke.github.io/b/public/projects/hex/demos/AS/gridAS.html)
 
-It's a hexagonal grid spiral/ring indexation that stores every hexagon's index just like that: *[0, 1, 2, 3, ..., N]*.
+It's a hexagonal grid spiral/ring indexation model that stores each hexagon index in a simple array. Each index is automatically mapped to it`s position in the grid. 
 
-##Why?
+The model consists of an abstraction that allows the use of efficient algorithms guided for this specific space orientation.
 
-Someone challenged me... I think.
+The source code header has more information on the specifics of the grid shape and notations. I should write a better documentation... some day.
+
+## Why?
+
+Someone challenged me... IIRC.
 
 It was part of a bigger project and possibly will be used as the map grid in a game.
 
-##Is it any good?
+## Is it any good?
 
 Yes. But it <del>probably</del> may not be your best choice, it really depends on what you want. You should check the [ultimate hexagonal grids reference](http://www.redblobgames.com/grids/hexagons/) first.
 
