@@ -1,5 +1,7 @@
 # priorityqueue.js
 
+by [https://github.com/janogonzalez](https://github.com/janogonzalez/priorityqueuejs)
+
 A simple priority queue data structure for Node.js and the browser.
 
 ## Installation
