@@ -2,6 +2,17 @@
 layout: default
 ---
 
-<div class="page">
-  {{ content }}
+{% include navbar.html %}
+<main class="mdl-layout__content">
+
+<div class="content container">
+  <div class="page">
+    {{ content }}
+  </div>
+  <footer class="mdl-mini-footer" style="background-color: rgba(0, 0, 0, 0.08);">
+    <div class="mdl-mini-footer__left-section">
+        <p style="color: #505050">pboueke &copy; {{ site.time | date: '%Y' }}</p>
+    </div>
+  </footer>
+
 </div>

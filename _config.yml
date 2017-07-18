@@ -1,8 +1,8 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:      rb-pygments
-gems: [jekyll-paginate, jekyll-gist]
-
+plugins: [jekyll-paginate, jekyll-gist]
+repository:       pboueke/b
 # Permalinks
 permalink:        pretty
 #relative_permalinks: true

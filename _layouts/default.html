@@ -4,20 +4,8 @@
   {% include mdl_head.html %}
 
   <body>
+    {{ content }}
 
-    {% include navbar.html %}
-    <main class="mdl-layout__content">
-
-    <div class="content container">
-      {{ content }}
-
-      <footer class="mdl-mini-footer" style="background-color: rgba(0, 0, 0, 0.08);">
-        <div class="mdl-mini-footer__left-section">
-            <p style="color: #505050">pboueke &copy; {{ site.time | date: '%Y' }}</p>
-        </div>
-      </footer>
-
-    </div>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   </body>
 </html>
