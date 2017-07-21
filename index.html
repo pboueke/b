@@ -6,6 +6,7 @@ title: pboueke
 <style>
   body{
     background: #dedede;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
   }
 </style>
 
@@ -19,10 +20,10 @@ title: pboueke
       }
       .console-container {
         font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono", monospace;
-        font-size:38px;
+        font-size:30px;
         text-align:left;
-        height:20px;
-        width:350px;
+        height:16px;
+        width:320px;
         display:block;
         color:white;
         top:0;
@@ -2619,6 +2620,77 @@ title: pboueke
 </style>
 </div>
 
+<div class="greetings">
+  <style>
+    .greetings {
+      position: absolute;
+      width: 100%;
+      font-weight: 300;
+      margin: 500px auto auto auto;
+      text-align: center;
+    }
+    .greetings-text {
+      max-width: 65vw;
+      margin: auto;
+      font-weight: 300;
+    }
+    .greetings-text__main {
+      font-size: 30px;
+      line-height: 50px;
+    }
+    .greetings-text__sec {
+      margin: 20px auto 20px auto;
+      font-size: 30px;
+      font-weight: 300;
+      line-height: 35px;
+      background: rgba(0, 0, 0, 0.28);
+      border-radius: 10px;
+      padding: 15px 0 15px 0;
+      color: #dedede;
+    }
+    .greetings-text__thrd {
+      font-size: 26px;
+          font-weight: 200;
+          line-height: normal;
+    }
+    .greetings-text > a {
+      text-decoration: none;
+      font-weight: 300;
+      color: #b74277;
+    }
+    .hi {
+      font-family: "Pacifico";
+      vertical-align: sub;
+      font-size: 80px;
+      margin-right: 15px;
+      color: #7094a2;
+    }
+    .name {
+      font-size: 30px;
+      color: #7094a2;
+      font-weight: 400;
+    }
+    .mail {
+      font-weight: 500;
+    }
+  </style>
+  <p class="greetings-text greetings-text__main">
+    <span class="hi">Hi!</span> It's nice to see you landing here.
+    My name is  <span class="name">Pedro Boueke</span>.
+    I'm an undergratuate studying Computer and Information Engineering at <a target="_blank" href="http://www.ufrj.br/">UFRJ</a>,
+    currently employed at <a target="_blank" href="https://www.bigdatacorp.info/eng-home">Big Data Corp.</a> doing all sorts of things.
+  </p>
+
+  <p class="greetings-text greetings-text__sec">
+  You can contact me with <span class="mail">phboueke</span> at gmail.com
+  </p>
+
+  <p class="greetings-text greetings-text__thrd">
+    Also, there are plenty of places for you to find me and see what I am doing. Here are some:
+  </p>
+
+</div>
+
 <script>
   var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
@@ -2629,8 +2701,7 @@ title: pboueke
 
 // function([string1, string2],target id,[color1,color2])
   window.setTimeout(function() { consoleText(['#coffe', '#gamedev', '#design', '#bigdata ;)', '#diy', '#programming', '#vegan'],
-  'text'/*,
-  ['#9E271B','#2B1E6D','#14782A']*/);},textTime)
+  'text');},textTime)
 
   function consoleText(words, id, colors) {
     if (colors === undefined) colors = ['#fff'];
@@ -2640,7 +2711,6 @@ title: pboueke
     var x = 1;
     var waiting = false;
     var target = document.getElementById(id)
-    target.setAttribute('style', 'color:' + colors[0])
     window.setInterval(function() {
 
       if (letterCount === 0 && waiting === false) {
@@ -2652,7 +2722,6 @@ title: pboueke
           var usedWord = words.shift();
           words.push(usedWord);
           x = 1;
-          target.setAttribute('style', 'color:' + colors[0])
           letterCount += x;
           waiting = false;
         }, 1000)
