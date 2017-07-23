@@ -5,12 +5,94 @@ layout: default
 {% include header.html %}
 
 <div class="content container">
+
   <div class="page">
     {{ content }}
   </div>
-  <footer class="mdl-mini-footer" style="background-color: rgba(0, 0, 0, 0.08);">
-    <div class="mdl-mini-footer__left-section">
-        <p style="color: #505050">pboueke &copy; {{ site.time | date: '%Y' }}</p>
+
+  <footer class="footer">
+    <style>
+    .footer {
+      margin: 10px auto -100px auto;
+      padding: 15px 0 15px 0;
+      width: 100%;
+      background: #d6d6d6;
+    }
+    .folumns {
+      column-count: 3;
+      max-width:1280px;
+      width: 65vw;
+      margin: auto;
+    }
+    .element {
+      color: #7094a2;
+      max-width: 110px;
+      margin-bottom: 5px;
+      margin-left: 20px;
+      padding: 1px;
+      height: 19px;
+    }
+    .element > a {
+      color: #7094a2;
+      text-decoration: none;
+    }
+    .favatar {
+      display: inline-flex;
+      width: 75px;
+      height: 75px;
+      background-image: url(/b/public/img/pb_lowpoly.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      cursor: pointer;
+    }
+    .favatar > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .fame {
+      color: #7094a2;
+      font-weight: 500;
+      font-size: 20px;
+      margin: 17px 0 0 3px;
+      text-decoration: none;
+    }
+    @media screen and (max-width: 700px) {
+      .folumns {
+        column-count: 2;
+      }
+    }
+    @media screen and (max-width: 470px) {
+      .folumns {
+        column-count: 1;
+      }
+    }
+    </style>
+      <div class="folumns">
+        <div style="display: inline-flex;">
+        <div class="favatar">
+          <a href="{{ site.baseurl }}/index.html"></a>
+        </div>
+        <a href="{{ site.baseurl }}/index.html" class="fame">
+          Pedro<br>Boueke
+        </a>
+      </div>
+      <div class="element">
+          <a href="{{ site.baseurl }}/index.html">Home</a>
+      </div>
+      <div class="element">
+          <a href="{{ site.baseurl }}/log">Blog</a>
+      </div>
+      <div class="element">
+          <a href="{{ site.baseurl }}/projects">Side Projects</a>
+      </div>
+      <div class="element">
+          <a href="https://github.com/pboueke">GitHub</a>
+      </div>
+      <div class="element">
+          <p href="">pboueke &copy; {{ site.time | date: '%Y' }}</p>
+      </div>
     </div>
   </footer>
 
