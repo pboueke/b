@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Unihexgrid
+date: 2015-11-06
+header: hexagonal grid indexation model.
+image: http://i.imgur.com/GEWReWq.png
+tags: [js,hexagons]
 ---
 
 ![unihexgrid](http://i.imgur.com/GEWReWq.png)
