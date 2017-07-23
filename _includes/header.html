@@ -1,17 +1,19 @@
 <div class="header">
   <style>
   .header {
-    height: 350px;
-    width:100%
+    min-height: 350px;
+    width:100%;
+    text-align: center;
   }
   .avatar {
-    width:200px;
-    height: 200px;
+    display: inline-flex;
+    width:150px;
+    height: 150px;
     background-image: url("{{ site.baseurl }}/public/img/pb_lowpoly.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    margin: 20px auto 20px auto;
+    margin: 20px 10px 20px auto;
     cursor:pointer;
   }
   .avatar > a {
@@ -21,14 +23,17 @@
   }
   .name {
     text-align: center;
-    margin: 30px auto 10px auto;
-    line-height: 40px;
+    display: inline-flex;
+    margin: 60px auto 10px 10px;
+    line-height: 36px;
+    text-align: left;
+    vertical-align: top;
   }
   .name > a {
     text-decoration: none;
     color: #7094a2;
-    font-weight: 300;
-    font-size: 40px;
+    font-weight: 500;
+    font-size: 36px;
   }
   .divide {
     margin: auto;
@@ -37,8 +42,36 @@
     border-width: 5px;
     border-radius: 5px;
   }
+  @media screen and (max-width: 550px) {
+    .divide {
+      width: 85vw;
+    }
+  }
+  @media screen and (max-width: 270px) {
+    .name {
+      text-align: center;
+      margin: 0px;
+      line-height: 35px;
+    }
+    .name > a {
+      font-size: 30px;
+    }
+    .avatar {
+      margin: 10px;
+    }
+  }
+  .title {
+    margin: 50px 0 0 0;
+  }
+  .title > span {
+    font-size: 60px;
+    font-weight: 100;
+    font-family: "Pacifico";
+    color: #7094a2;
+  }
   </style>
   <div class="avatar"><a href="../index.html" ></a></div>
-  <div class="name"><a href="../index.html">Pedro Boueke</a></div>
+  <div class="name"><a href="../index.html">Pedro<br>Boueke</a></div>
+  <div class="title"><span>{{page.title}}</span></div>
   <hr class="divide">
 </div>
