@@ -63,15 +63,19 @@
   .title {
     margin: 50px 0 0 0;
   }
-  .title > span {
+  .title > a {
     font-size: 60px;
     font-weight: 100;
     font-family: "Pacifico";
     color: #7094a2;
+    text-decoration: none;
   }
   </style>
   <div class="avatar"><a href="{{ site.baseurl }}/index.html" ></a></div>
   <div class="name"><a href="{{ site.baseurl }}/index.html">Pedro<br>Boueke</a></div>
-  <div class="title"><span>{{page.title}}</span></div>
+  <div class="title"><a href={% if page.title == "Side Projects"%}"{{ site.baseurl }}/projects"
+                             {% elsif page.title == "404" %}"{{ site.baseurl }}/index.html"
+                             {% else %}"{{ site.baseurl }}/log"
+                             {% endif %}> {{page.title}}</a></div>
   <hr class="divide">
 </div>

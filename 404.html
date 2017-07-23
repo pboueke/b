@@ -1,52 +1,30 @@
 ---
-title: "404: Page not found"
+layout: page
+title: "404"
 permalink: 404.html
 ---
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="echanical, analytical and visual experiments, mostly in your browser..">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-
-    <title>
-      {% if page.title == "Home" %}
-        {{ site.title }} &middot; {{ site.tagline }}
-      {% else %}
-        {{ page.title }} &middot; {{ site.title }}
-      {% endif %}
-    </title>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.grey-pink.min.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/styles.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <style>
-    #main { width: 100%; position:absolute; top: 0px; left:0px; z-index: 1, margin: 0 auto}
-    </style>
-    <script src="{{ site.baseurl }}/public/projects/risks/risks_lite.js"></script>
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-</head>
-
-<body style="overflow: hidden;">
-
-  {% include navbar.html %}
-
-    <canvas id="main"></canvas>
-
-    <div style="position: absolute; z-index: 2; top: 35%; left: 35vw; margin-left:50px; margin-top:-25px">
-      <h1 style="font-size: 1000%; color: #595959;"> <b> 404 </b> </h1>
-    </div>
-
-  <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-</body>
-</html>
+<style>
+#main {
+  border-top: 5px solid #7094a2;
+  border-bottom: 5px solid #7094a2;
+  width: 100%;
+  height: 400px;
+  top: 0px;
+  left:0px;
+  z-index: 1;
+  margin: 0 auto -10px auto;
+}
+.home {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.home >a {
+  color: #7094a2;
+  text-decoration: none;
+  font-size: 30px;
+}
+</style>
+<script src="{{ site.baseurl }}/public/projects/risks/risks_lite.js"></script>
+<div class="home"><a href="{{ site.baseurl }}/index.html">Click here to go home.</a></div>
+<canvas id="main"></canvas>
