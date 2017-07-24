@@ -1,5 +1,5 @@
 # Dependencies
-markdown:         redcarpet
+markdown:         kramdown
 highlighter:      rb-pygments
 plugins: [jekyll-gist, jekyll-paginate-v2]
 repository:       pboueke/b
