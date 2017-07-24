@@ -15,7 +15,14 @@ layout: default
   background: #FEFEFE;
   padding-bottom: 30px;
 }
-
+.comments {
+  padding: 30px 0 30px 0;
+}
+@media screen and (max-width: 750px) {
+  .post, .divide {
+    width: 85vw;
+  }
+}
 .post > * {
   text-align: center;
   margin-left: 20px;
@@ -95,6 +102,27 @@ img {
   <div>
     {{ content | markdownify }}
   </div>
+</div>
+
+<div class="post comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+  var disqus_shortname = 'pboueke'
+
+  var disqus_config = function () {
+  this.page.url = "{{ site.baseurl }}{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = encodeURI("{{ page.date }} {{ page.title }}"); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://http-pboueke-github-io.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </div>
 
 {% include footer.html %}
