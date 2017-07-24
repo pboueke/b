@@ -16,7 +16,7 @@ tags: [jekyll,blog,ui,design]
 
 &nbsp;&nbsp;&nbsp;&nbsp; Hopefully, there will also be working comment threads using the DISQUS integration by the end of the week. Hopefully.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Oh, btw, that awesome thing with the moving polygons, which inspired me to do all this, was made  by [] this guy](https://codepen.io/shakdaniel/) in this awesome pen:
+&nbsp;&nbsp;&nbsp;&nbsp; Oh, btw, that awesome thing with the moving polygons, which inspired me to do all this, was made  by [this guy](https://codepen.io/shakdaniel/) in this awesome pen:
 <br><br>
 
 <p data-height="500" data-theme-id="0" data-slug-hash="Pwmpzx" data-default-tab="css,result" data-user="shakdaniel" data-embed-version="2" data-pen-title="Smash!" class="codepen">See the Pen <a href="https://codepen.io/shakdaniel/pen/Pwmpzx/">Smash!</a> by Shak Daniel (<a href="https://codepen.io/shakdaniel">@shakdaniel</a>) on <a href="https://codepen.io">CodePen</a>.</p>
