@@ -89,7 +89,7 @@ img {
   <span class="post-date">{{ page.date | date_to_long_string  }}</span>
   <div class="tags">
   {% for tag in page.tags %}
-    <a class="tag" href="{{ site.baseurl }}/tag/{{ tag }}">#{{ tag }}</a>
+    <span class="tag" href="{{ site.baseurl }}/tag/{{ tag }}">#{{ tag }}</span>
   {% endfor %}
   </div>
   {% if page.image %}

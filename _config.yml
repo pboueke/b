@@ -1,14 +1,14 @@
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
-plugins: [jekyll-gist, jekyll-paginate-v2]
+plugins: [jekyll-gist, jekyll-paginate]
 repository:       pboueke/b
 # Permalinks
 permalink:        pretty
 #relative_permalinks: true
 
 gems:
-  - jekyll-paginate-v2
+  - jekyll-paginate
 
 # Setup
 title:            pboueke
@@ -21,26 +21,29 @@ author:
   name:           'Pedro Boueke'
   url:            https://github.com/pboueke
 
-# Pagination Settings
-pagination:
-  enabled: true
-  per_page: 3
-  permalink: '/:num/'
-  title: ':title'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-  trail:
-    before: 2
-    after: 2
+paginate: 3
+paginate_path: "/log/:num/"
 
-autopages:
-  enabled: true
-  tags:
-      layouts:
-        - 'posts.html'
-      title: 'tag: ":tag"' # :tag is replaced by the tag name
-      permalink: '/tag/:tag'
+# Pagination Settings
+#pagination:
+#  enabled: true
+#  per_page: 3
+#  permalink: '/:num/'
+#  title: ':title'
+#  limit: 0
+#  sort_field: 'date'
+#  sort_reverse: true
+#  trail:
+#    before: 2
+#    after: 2
+#
+#autopages:
+#  enabled: true
+#  tags:
+#      layouts:
+#        - 'posts.html'
+#      title: 'tag: ":tag"' # :tag is replaced by the tag name
+#      permalink: '/tag/:tag'
 
 # Custom vars
 version:          2.1.0
