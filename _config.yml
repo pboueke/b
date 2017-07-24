@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         kramdown
-highlighter:      rb-pygments
+highlighter:      rouge
 plugins: [jekyll-gist, jekyll-paginate-v2]
 repository:       pboueke/b
 # Permalinks
