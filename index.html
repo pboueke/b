@@ -305,7 +305,7 @@ title: pboueke
       }
   </style>
   <div style="max-width: 1280px; display: block; margin: auto;">
-    <svg class="avatar avatar--pos" xmlns="http://www.w3.org/2000/svg"
+    <svg id="avt" class="avatar avatar--pos" xmlns="http://www.w3.org/2000/svg"
        xmlns:dc="http://purl.org/dc/elements/1.1/"
        xmlns:cc="http://creativecommons.org/ns#"
        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -2768,7 +2768,14 @@ title: pboueke
 <script>
   var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
   var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+  var isEdge = /Edge/.test(navigator.userAgent);
+
+  if (isEdge) {
+    document.querySelector("#avt").style.left = "0px";
+  }
+
   var textTime = 0;
+  // polygon animation enabled only on chrome and safari =/
   if (isChrome || isSafari) {
     textTime = 20000;
   }
