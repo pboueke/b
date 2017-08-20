@@ -3,7 +3,7 @@ layout: post
 title: Unihexgrid
 date: 2015-11-06
 header: "&nbsp;&nbsp;&nbsp;&nbsp;A hexagonal grid spiral/ring indexation model that stores each hexagon index in a simple array. Each index is automatically mapped to it`s position in the grid. The model consists of an abstraction that allows the use of efficient algorithms guided for this specific space orientation."
-image: https://i.imgur.com/GEWReWq.png
+image: hexgrid.png
 tags: [js,hexagons]
 comments: true
 ---

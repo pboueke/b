@@ -119,7 +119,7 @@ title: Blog
       {% endfor %}
       </div>
       {% if post.image %}
-        <img src="{{ post.image }}" />
+        <img src="{{ site.baseurl }}/public/img/{{ post.image }}" />
       {% endif %}
       {% if page.html %}
         {{ page.html }}

@@ -99,7 +99,7 @@ p {
   {% endfor %}
   </div>
   {% if page.image %}
-    <img alt="post image" src="{{ page.image }}" />
+    <img alt="post image" src="{{ site.baseurl }}/public/img/{{ page.image }}" />
   {% endif %}
   {% if page.html %}
     {{ page.html }}
