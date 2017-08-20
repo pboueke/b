@@ -2683,7 +2683,7 @@ title: pboueke
     .hi {
       font-family: "Pacifico";
       vertical-align: sub;
-      font-size: 80px;
+      font-size: 70px;
       margin-right: 15px;
       color: #7094a2;
     }
@@ -2694,6 +2694,18 @@ title: pboueke
     }
     .mail {
       font-weight: 500;
+    }
+    @media screen and (max-width: 450px) {
+      .greetings-text__main {
+        font-size: 25px;
+        line-height: 40px;
+      }
+      .hi {
+        font-size: 60px;
+      }
+      .name {
+        font-size: 26px;
+      }
     }
     .links-container {
       margin: 30px auto 10px auto;
@@ -2729,8 +2741,8 @@ title: pboueke
   <p class="greetings-text greetings-text__main">
     <span class="hi">Hi!</span> It's nice to see you landing here. <br />
     My name is  <span class="name">Pedro Boueke</span>.
-    I'm an undergraduate studying Computer and Information Engineering at <a target="_blank" href="http://www.ufrj.br/">UFRJ</a>,
-    currently employed at <a target="_blank" href="https://www.bigdatacorp.info/eng-home">Big Data Corp.</a> doing all sorts of things.
+    I'm an undergraduate studying Computer and Information Engineering at <a target="_blank" rel="noopener" href="https://ufrj.br/">UFRJ</a>,
+    currently employed at <a target="_blank" rel="noopener" href="https://www.bigdatacorp.info/eng-home">Big Data Corp.</a> doing all sorts of things.
   </p>
 
   <p class="greetings-text greetings-text__sec">
@@ -2742,13 +2754,13 @@ title: pboueke
   </p>
 
   <div class="links-container">
-    <a href="https://github.com/pboueke" target="_blank" class="link">
+    <a href="https://github.com/pboueke" target="_blank" rel="noopener" class="link">
       GITHUB
     </a>
-    <a href="https://www.linkedin.com/in/pedro-hollanda-boueke-660413b6" target="_blank" class="link">
+    <a href="https://www.linkedin.com/in/pedro-hollanda-boueke-660413b6" target="_blank" rel="noopener" class="link">
       LINKEDIN
     </a>
-    <a href="https://speakerdeck.com/pboueke" target="_blank" class="link">
+    <a href="https://speakerdeck.com/pboueke" target="_blank" rel="noopener" class="link">
       PRESENTATIONS
     </a>
     <a href="{{ site.baseurl }}/log" class="link">
@@ -2777,7 +2789,7 @@ title: pboueke
   var textTime = 0;
   // polygon animation enabled only on chrome and safari =/
   if (isChrome || isSafari) {
-    textTime = 20000;
+    textTime = 18000;
   }
 
 // function([string1, string2],target id,[color1,color2])

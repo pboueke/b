@@ -9,7 +9,6 @@ comments: true
 ---
 
 ## Hello There
-<br>
 
 &nbsp;&nbsp;&nbsp;&nbsp; It seems every so often I completely redesign my [Jekyll](https://jekyllrb.com/) page. This time it took more time than the usual, and I am not sure about the result. I suppose it's better than before, but that is not saying much.
 
