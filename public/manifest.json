@@ -9,11 +9,11 @@
   "theme_color": "#7094a2",
   "description": "The personal page of Pedro Boueke.",
   "icons": [{
-    "src": "public/img/pb_256.png",
+    "src": "img/pb_256.png",
     "sizes": "256x256",
     "type": "image/png"
   }, {
-    "src": "public/img/pb_512",
+    "src": "img/pb_512",
     "sizes": "512x512",
     "type": "image/png"
   }],
