@@ -31,7 +31,7 @@ layout: default
 .post img {
   display: flex;
   margin: auto;
-  max-height: 300px;
+  /*max-height: 300px;*/
   max-width: 90%;
 }
 .post h1,h2,h3,h4,h5 {
@@ -93,11 +93,32 @@ blockquote li {
     line-height: 25px;
     color: #224552;
 }
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
 .post code {
     color: #a92472;
     background-color: #f1f1f1;
     padding: 3px 10px 3px 10px;
     border-radius: 10px;
+}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+  margin-bottom: 25px;;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 </style>
 
