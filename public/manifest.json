@@ -2,7 +2,7 @@
   "name": "Pedro Boueke",
   "lang": "en-US",
   "short_name": "pboueke",
-  "start_url": "index.html",
+  "start_url": "/b/index.html",
   "orientation": "portrait",
   "display": "standalone",
   "background_color": "#dedede",
@@ -13,7 +13,7 @@
     "sizes": "256x256",
     "type": "image/png"
   }, {
-    "src": "img/pb_512",
+    "src": "img/pb_512.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
