@@ -1,0 +1,21 @@
+{
+  "name": "pboueke",
+  "lang": "en-US",
+  "short_name": "pboueke",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#dedede",
+  "description": "The personal page of Pedro Boueke.",
+  "icons": [{
+    "src": "public/img/apple-touch-icon-144-precomposed.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }, {
+    "src": "public/img/favicon.ico",
+    "sizes": "32x32",
+    "type": "image/ico"
+  }],
+  "related_applications": [{
+    "platform": "web"
+  }]
+}
