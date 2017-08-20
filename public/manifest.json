@@ -2,7 +2,7 @@
   "name": "Pedro Boueke",
   "lang": "en-US",
   "short_name": "pboueke",
-  "start_url": ".",
+  "start_url": "index.html",
   "orientation": "portrait",
   "display": "standalone",
   "background_color": "#dedede",
