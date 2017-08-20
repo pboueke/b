@@ -3,7 +3,7 @@ layout: post
 title: You are using a PWA
 date: 2017-08-20
 header: "&nbsp;&nbsp;&nbsp;&nbsp; Some time ago Google started talking about [progressive web apps](https://developers.google.com/web/progressive-web-apps/). The idea is simple: making regular web pages more reliable, fast and engaging, with the possibility of having them appear as an app in your homescreen. If any of this sounds attractive to you, you will be glad to hear of how simple it is to actually get it working. If it doesn't... I dont't think you got the idea just yet."
-image: pwa.png
+image: pwa.PNG
 tags: [pwa,blog,ux,jekyll]
 comments: true
 ---
