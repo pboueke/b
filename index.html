@@ -1575,4 +1575,44 @@ title: pboueke
       }
     }, 400)
   }
+
+  var colortrans = function(el, ic, fc) {
+    el.animate([
+      {fill: ic},
+      {fill: fc}
+    ], {
+      duration: 1500,
+    })
+  }
+
+  // "Animation" by Shak Daniel, at his awesome pen: https://codepen.io/shakdaniel/pen/mymVbL, MIT licensed
+  // get paths
+  var paths = document.getElementsByTagName('path');
+  //set speed
+  var speed = 100;
+  // animation fill
+  var fill = function(path) {
+      var i = 0;
+      window.setInterval(function() {
+          if (path.length == i) {return}
+          path[i].style.fillOpacity = "1";
+          i++;
+      }, speed);
+  };
+  for (var i = 0; i < paths.length; i++) {
+      // set paths opacity to 0
+      paths[i].style.fillOpacity = "0";
+      // set paths fill and stroke for animation start
+      paths[i].onmouseover = function() {
+          this.memory = this.style.fill;
+          this.style.stroke = "#A381BD";
+          this.style.strokeWidth = "2"; 
+          colortrans(this,"#960000",this.memory);
+      };
+      paths[i].onmouseout = function() {
+          this.style.fillOpacity = "1";
+          this.style.strokeWidth = "0"; 
+      };
+  }
+  fill(paths);
 </script>
