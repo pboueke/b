@@ -7,8 +7,6 @@ tags: [csharp]
 comments: true
 ---
 
-## Compiling user input during runtime in C#
-
 &nbsp;&nbsp;&nbsp;&nbsp; It is not always wise to allow the user to have control of the code running in your application, but when you are the user things may be different. I have been in many situations where that would be desirable, specially when things like formatting are involved, where it may be much simpler to give access to native funcionality than to creating a parser. 
 
 &nbsp;&nbsp;&nbsp;&nbsp; For this reason, I am going to share below the source I have been using to do just that.
