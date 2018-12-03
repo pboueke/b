@@ -13,6 +13,7 @@ comments: true
 
 &nbsp;&nbsp;&nbsp;&nbsp; For this reason, I am going to share below the source I have been using to do just that.
 
+{% raw %}
 ```
 using Microsoft.CSharp;
 using System;
@@ -67,7 +68,7 @@ namespace Internal.Tools.MongoToCSV
     }
 }
 ```
-
+{% endraw %}
 &nbsp;&nbsp;&nbsp;&nbsp; Note that you can change the function input and output to your linking. The source you are compiling is the one you see at the template string, if you need references to another namespace, just add it there. You can also see that the user code will be added to the Function property, in such a way that something line ```x.Name = X.First + " " + x.Last; return x.Name;``` would be a valid input.  Here is an example usage:
 
 ```
