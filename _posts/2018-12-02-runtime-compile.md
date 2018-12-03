@@ -52,12 +52,21 @@ namespace Internal.Tools.MongoToCSV
                     try {
                         assemblies.Add(x.Location);
                     }
-                    catch (NotSupportedException) { Console.WriteLine("Error Compiling User Code: Framework NotSupportedException"); }
+                    catch (NotSupportedException) { 
+                        Console.WriteLine("Error Compiling User Code: Framework NotSupportedException"); 
+                    }
                 }
 
-                CompilerResults r = provider.CompileAssemblyFromSource(new CompilerParameters(assemblies.ToArray()) { GenerateExecutable = false, GenerateInMemory = true }, source);
+                CompilerResults r = provider.CompileAssemblyFromSource(
+                new CompilerParameters(assemblies.ToArray()) { 
+                        GenerateExecutable = false, GenerateInMemory = true 
+                    }, 
+                source);
                 if (r.Errors.HasErrors)
-                    throw new Exception("Errors compiling delegate: " + string.Join(Environment.NewLine, r.Errors.OfType<CompilerError>().Select(e => e.ErrorText).ToArray()));
+                    throw new Exception("Errors compiling delegate: " + string.Join(
+                        Environment.NewLine, 
+                        r.Errors.OfType<CompilerError>().Select(e => e.ErrorText).ToArray())
+                    );
                 a = r.CompiledAssembly;
             }
             
