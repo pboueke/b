@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using pipelines for good in .Net
+title: Using pipelines for good
 date: 2018-12-05
 header: "&nbsp;&nbsp;&nbsp;&nbsp; Pipelines are essential in optimizing production steps everywhere, but I find a lack of them in many of the places you should expect one, specially in the programming world."
 image: capture.PNG
